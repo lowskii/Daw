@@ -4,6 +4,7 @@ import eqswindow
 import footerwindow
 import convererwindow
 import decoratorwindow
+import renderwindow
 
 class Window(Tk, Singleton):
     def init(self):
@@ -22,6 +23,8 @@ class Window(Tk, Singleton):
         self.button = Button(self, text='Show decorator', command=self.create_decorator)
         self.button.pack(expand=True)
 
+        self.button = Button(self, text='Rendering', command=self.open_render)
+        self.button.pack(expand=True)
 
     def create_eqs_window(self):
         global extraWindow
@@ -38,6 +41,10 @@ class Window(Tk, Singleton):
     def create_decorator(self):
         global extraWindow
         extraWindow = decoratorwindow.Extra()
+    
+    def open_render(self):
+        global extraWindow
+        extraWindow = renderwindow.Extra()
     
     def __init__(self):
         print('calling  from __init__')
