@@ -3,6 +3,7 @@ from creational.singleton import Singleton
 import eqswindow
 import footerwindow
 import convererwindow
+import decoratorwindow
 
 class Window(Tk, Singleton):
     def init(self):
@@ -18,6 +19,10 @@ class Window(Tk, Singleton):
         self.button = Button(self, text='Show footer', command=self.create_eqs_footer)
         self.button.pack(expand=True)
 
+        self.button = Button(self, text='Show decorator', command=self.create_decorator)
+        self.button.pack(expand=True)
+
+
     def create_eqs_window(self):
         global extraWindow
         extraWindow = eqswindow.Extra()
@@ -29,6 +34,10 @@ class Window(Tk, Singleton):
     def create_eqs_footer(self):
         global extraWindow
         extraWindow = footerwindow.Extra()
+
+    def create_decorator(self):
+        global extraWindow
+        extraWindow = decoratorwindow.Extra()
     
     def __init__(self):
         print('calling  from __init__')
